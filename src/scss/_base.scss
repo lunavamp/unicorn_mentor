@@ -1,0 +1,136 @@
+@use "../../node_modules/@crossfox/css-start/dist/base.min.css";
+@import "variables";
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  font: 180% "Open Sans", sans-serif;
+  font-style: normal;
+  color: $primary-text;
+  line-height: 1.4;
+  background-color: $bg-color;
+  background-image: url("./../img/blob.svg"), url("../img/blob2.svg"),
+    url("../img/blob3.svg");
+  background-position: 50rem -50rem, -100rem 174rem,
+    calc(100% + 70rem) calc(100% + 65rem);
+    overflow-x: hidden;
+}
+
+.flex-sb {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex-col-sb {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.container {
+  width: 85%;
+  margin: 0 auto;
+}
+
+.section {
+  padding: 8rem 0;
+}
+
+.card {
+  padding: 3rem 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.btn1 {
+  padding: 1.2rem 3rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  border: 0.2rem solid $brand-color3;
+  border-radius: 3rem;
+  color: $primary-text;
+  font-size: $font-xs;
+  background-color: $bg-color;
+  max-width: 26rem;
+}
+
+.btn2 {
+  padding: 1rem 2rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  border: none;
+  background-color: $brand-color3;
+  border-radius: 3rem;
+  color: $primary-text;
+  font-size: $font-xs;
+  max-width: 26rem;
+}
+
+.btn3 {
+  padding: 1.2rem 3rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  border: none;
+  background-color: $brand-color3;
+  border-radius: 3rem;
+  color: $primary-text;
+  font-size: $font-xs;
+}
+
+h1 {
+  font-size: $font-xl;
+  font-weight: 400;
+  line-height: 0.6;
+  letter-spacing: 0.14rem;
+  text-transform: uppercase;
+  span {
+    text-transform: lowercase;
+    font-size: $font-l;
+    font-weight: 700;
+    background: linear-gradient(transparent 50%, $brand-color3 50%);
+    background: -webkit-linear-gradient(50% transparent, 50% $brand-color3);
+  }
+}
+
+h2 {
+  font-size: $font-l;
+  font-weight: 400;
+  span {
+    font-weight: 700;
+    background: linear-gradient(transparent 50%, $brand-color3 50%);
+    background: -webkit-linear-gradient(50% transparent, 50% $brand-color3);
+  }
+}
+
+h3 {
+  font-size: $font-m;
+  font-weight: 700;
+}
+
+p + p {
+  margin-top: 1rem;
+}
+
+@mixin isMobile {
+  @media (max-width: $width-mob) {
+    @content;
+  }
+}
+
+@mixin isDesktop {
+  @media (min-width: $width-mob) {
+    @content;
+  }
+}
+
+html {
+  font-size: 2.1vw;
+
+  @include isDesktop() {
+    font-size: 0.645vw;
+  }
+}
