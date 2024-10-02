@@ -53,13 +53,18 @@ body {
   border: 0.2rem solid $brand-color3;
   border-radius: 3rem;
   color: $primary-text;
-  font-size: $font-xs;
+  font-size: $font-s;
   background-color: $bg-color;
   max-width: 26rem;
+  &:hover{
+    border: 0.2rem solid $brand-color4;
+    background-color: $brand-color4;
+    transition: all .3s ease-out;
+  }
 }
 
 .btn2 {
-  padding: 1rem 2rem;
+  padding: .9rem 1.8rem;
   text-transform: uppercase;
   font-weight: 700;
   border: none;
@@ -67,7 +72,8 @@ body {
   border-radius: 3rem;
   color: $primary-text;
   font-size: $font-xs;
-  max-width: 26rem;
+  max-width: 16rem;
+  text-align: center;
 }
 
 .btn3 {
@@ -78,7 +84,7 @@ body {
   background-color: $brand-color3;
   border-radius: 3rem;
   color: $primary-text;
-  font-size: $font-xs;
+  font-size: $font-s;
 }
 
 h1 {
@@ -132,5 +138,14 @@ html {
 
   @include isDesktop() {
     font-size: 0.645vw;
+  }
+}
+
+@media only screen and (min-width: 2560px) {
+  html {
+    font-size: 0.59vw;
+  }
+  .container {
+    width: 78%;
   }
 }

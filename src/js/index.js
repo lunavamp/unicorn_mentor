@@ -1,38 +1,66 @@
-const GOOGLE_ANALYTICS = 'G-XXXXXXX';
+let theLoaded, isMob;
 
 const d = document,
   body = d.body,
   bc = body.classList,
   $ = (sel, p = d) => p.querySelector(sel),
   $each = (sel, call, p = d) => p.querySelectorAll(sel).forEach(call),
-  $_oo = {
-	  rootMargin: '0px',
-	  threshold: 1.0,
-  },
-  $o = (sel, func) => {
-	  const el = $(sel)
-	  if (el) {
-		  new IntersectionObserver(([e]) => {
-			  func(e, e.target)
-		  }, $_oo).observe(el)
-	  }
-
-  },
+	$_oo = {
+		rootMargin: '0px',
+		threshold: 0.2,
+	},
+	$o = (sel, func, c = $_oo) => {
+		const el = getElement(sel)
+		if (el) {
+			const r = new IntersectionObserver(([e]) => {
+				func(e, e.target)
+			}, c);
+			r.observe(el)
+			return r
+		}
+	},
+	getElement = sel => (typeof sel === 'string' ? $(sel) : sel),
   $e = (sel, type, call) => {
 	  const el = typeof sel === 'string' ? $(sel) : sel
 	  el && el.addEventListener(type, call)
-  }
+  },
+	isLoaded = new Promise(e => theLoaded = e),
+	$v = (sel, call, once = false) => {
+		isLoaded.then(() => {
+			let obs = $o(sel, e => {
+				if (e.isIntersecting) {
+					call(sel);
+					if (once) {
+						obs.unobserve(getElement(sel))
+					}
+				}
 
-// GOOGLE ANALYTICS
-window.dataLayer = window.dataLayer || []
-function gtag () {dataLayer.push(arguments)}
-gtag('js', new Date())
-gtag('config', GOOGLE_ANALYTICS)
+			})
+		})
+	};
+
 
 
 $o('.page-top', e => {
 	bc[e.intersectionRatio === 0 ? 'add' : 'remove']('is-scroll')
 })
+
+$v('.faq-video', el => {
+	$(el).play();
+})
+
+
+const preloaderText = setTimeout(() => {
+	$('.preloader').textContent = 'Идет загрузка...'
+}, 300);
+
+$e(window, 'load', () => {
+	clearTimeout(preloaderText);
+	bc.add('loaded');
+	theLoaded();
+
+
+});
 
 $e(body, 'click', e => {
 	const el = e.target

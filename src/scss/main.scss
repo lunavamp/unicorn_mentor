@@ -3,17 +3,16 @@
 
 /* banner section */
 .banner-section {
-  padding: 18rem 0 8rem;
+  padding: 21rem 0 14rem;
 }
 .banner-container {
-  gap: 3.5rem;
+  gap: 4rem;
   max-width: 60rem;
   .banner-info {
-    gap: 3.5rem;
+    gap: 4rem;
   }
   svg {
     transform: rotate(180deg);
-    margin-top: 3rem;
     fill: $brand-color3;
   }
   .flex-sb {
@@ -34,10 +33,10 @@
 .about-cards {
   flex-wrap: wrap;
   align-items: flex-start;
-  gap: 2rem 1rem;
+  gap: 2rem 2rem;
   .card {
-    max-width: 40rem;
-    height: 29rem;
+    max-width: 42.5rem;
+    height: 28rem;
     background-color: $bg-color2;
     border-radius: 3rem;
   }
@@ -47,7 +46,7 @@
 }
 
 .about-section {
-  gap: 3.5rem;
+  gap: 4rem;
   svg {
     height: 5rem;
     width: 5rem;
@@ -66,9 +65,8 @@
 .for-who-container,
 .learn-container,
 .projects-container {
-  max-width: 60rem;
-  gap: 3.5rem;
-  margin-top: 6rem;
+  max-width: 74rem;
+  gap: 4rem;
   a {
     color: $brand-color2;
     margin-top: 1rem;
@@ -79,19 +77,36 @@
 .learn-section,
 .projects-section {
   align-items: flex-start;
-  padding: 0 10rem;
   width: 100%;
   background: #fff;
   box-shadow: 0.3rem 0.4rem 0.9rem 0 rgba(0, 0, 0, 0.04);
-  img {
-    width: 55rem;
-  }
 }
 
 .learn-section {
   margin: 2rem 0 2rem 2rem;
+  padding: 0 10rem;
+}
+.forwho-bg {
+  background: url('../img/file10.svg') no-repeat center/150%;
+  height: 37rem;
+  width: 40rem;
 }
 
+.projects-bg {
+  background: url('../img/file1.svg') no-repeat center/170%;
+  height: 37rem;
+  width: 38rem;
+}
+
+.learn-bg {
+  background: url('../img/file2.svg') no-repeat center/170%;
+  height: 37rem;
+  width: 45rem;
+}
+.learn-wrap {
+  margin-left: -3.8rem;
+  width: 100%;
+}
 /* timeline */
 .timeline-section {
   position: relative;
@@ -215,7 +230,7 @@
 
 /* price section */
 .price-section {
-  gap: 3.5rem;
+  gap: 4rem;
   table td {
     vertical-align: middle;
   }
@@ -224,10 +239,10 @@
   }
 }
 .price-cards {
-  background-color: $brand-color3;
+  background-color: #000;
   border-radius: 3rem;
   padding: 3rem 2rem;
-  gap: 3.5rem;
+  gap: 4rem;
   .card {
     background-color: $bg-color;
     border-radius: 3rem;
@@ -262,10 +277,15 @@
 }
 
 /* faq section */
+.faq-section-container {
+  gap: 4rem;
+}
 .faq-section {
-  gap: 3rem;
   position: relative;
-
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  
   summary {
     list-style-type: none;
     display: flex;
@@ -293,10 +313,109 @@
     }
   }
   p {
-    padding: 3rem 1rem;
+    padding: 2.3rem 1rem;
+    max-width: 74rem;
   }
   a {
     text-decoration: underline;
     color: $brand-color1;
   }
 }
+
+.faq-bg {
+  position: relative;
+
+  .faq-video {
+    position: absolute;
+    border-radius: 3rem;
+    transform: rotate(5deg);
+    z-index: 1;
+    top: 20rem;
+    padding: 0 .5rem .5rem 0;
+    border-bottom: 2rem solid $brand-color3;
+    border-right: 2rem solid $brand-color3;
+  }
+  .faq-img {
+    width: 45rem;
+    border-radius: 3rem;
+    margin: 5rem 0 0 5rem;
+
+  }
+}
+
+/* review section */
+.reviews-section {
+  gap: 4rem;
+}
+.review-cards {
+  img {
+    height: 8rem;
+    width: 8rem;
+    background-color: black;
+    border-radius: 50%;
+    border: .4rem dashed white;
+  }
+}
+
+.review-info {
+  gap:2rem;
+  p {
+    margin: 0;
+  }
+  .subtitle {
+    font-size: $font-xs;
+  }
+  .review-author {
+    font-weight: 700;
+  }
+}
+
+/* footer */
+footer {
+  background-color: black;
+  h3, p {
+    color: #fff;
+  }
+  a {
+    color: $accent-text;
+  }
+  p, a {
+    font-size: $font-xs;
+  }
+  .social-icons svg {
+    fill: #fff;
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+  .social-icons {
+    gap: .3rem;
+  }
+}
+
+.footer-container {
+  align-items: flex-start;
+}
+
+.form-container, .footer-contacts {
+  gap: 2rem;
+}
+
+.contact-form {
+  gap: 2rem;
+  input, textarea {
+    background: transparent;
+    border: none;
+    border-bottom: .1rem solid $accent-text;
+    width: 100%;
+    border-radius: .2rem;
+    color: #fff;
+  }
+  .flex-sb {
+    gap: 1rem;
+  }
+  input::placeholder, textarea::placeholder{
+    color: $accent-text;
+    font-size: $font-xs;
+  }
+}
+
