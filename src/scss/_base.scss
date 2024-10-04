@@ -16,6 +16,10 @@ body {
     overflow-x: hidden;
 }
 
+h1>span::selection, h1::selection, h2::selection, h2>span::selection, h3::selection, h4::selection,  p::selection, summary::selection, a::selection {
+  background: $brand-color4; 
+}
+
 .flex-sb {
   display: flex;
   justify-content: space-between;
@@ -30,6 +34,11 @@ body {
 
 .container {
   width: 85%;
+  margin: 0 auto;
+}
+
+.container2 {
+  width: 80%;
   margin: 0 auto;
 }
 
@@ -50,14 +59,14 @@ body {
   padding: 1.2rem 3rem;
   text-transform: uppercase;
   font-weight: 700;
-  border: 0.2rem solid $brand-color3;
+  border: 0.3rem solid $brand-color3;
   border-radius: 3rem;
   color: $primary-text;
   font-size: $font-s;
   background-color: $bg-color;
   max-width: 26rem;
   &:hover{
-    border: 0.2rem solid $brand-color4;
+    border: 0.3rem solid $brand-color4;
     background-color: $brand-color4;
     transition: all .3s ease-out;
   }
@@ -147,5 +156,8 @@ html {
   }
   .container {
     width: 78%;
+  }
+  .container2 {
+    width: 70%;
   }
 }
