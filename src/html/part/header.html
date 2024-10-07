@@ -1,24 +1,28 @@
 @@include('meta.html', {title: "@@title", description: "@@description"})
 <header class="header">
-  <div class="container flex-sb">
-    <div class="header-logo">
-      <a href="/">@@COMPANY_NAME</a>
-    </div>
-    <div class="burger-menu-container">
-      <div class="burger-icon flex-col-sb">
-        <span></span>
-        <span></span>
-        <span></span>
+  <div class="container">
+    <div class="header-wrapper flex-sb">
+      <div class="header-logo anim4-move-down">
+        <a href="/">@@COMPANY_NAME</a>
       </div>
+      <div class="burger-menu-container">
+        <div class="burger-icon flex-col-sb">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+      <nav class="header-nav">
+        <ul class="header-menu flex-sb anim4-move-down">
+          <li><a href="#" class="menu-link1">Главная</a></li>
+          <li><a href="#" class="menu-link2">Программа</a></li>
+          <li><a href="#" class="menu-link3">Вопросы</a></li>
+          <li><a href="#" class="menu-link4">Тарифы</a></li>
+        </ul>
+      </nav>
+      <button class="openModal btn2 flex-sb header-btn anim4-move-down">
+        Консультация
+      </button>
     </div>
-    <nav class="header-nav">
-      <ul class="header-menu flex-sb">
-        <li><a href="#" class="menu-link1">Главная</a></li>
-        <li><a href="#" class="menu-link2">Программа</a></li>
-        <li><a href="#" class="menu-link3">Вопросы</a></li>
-        <li><a href="#" class="menu-link4">Тарифы</a></li>
-      </ul>
-    </nav>
-    <button class="openModal btn2 flex-sb header-btn">Консультация</button>
   </div>
 </header>

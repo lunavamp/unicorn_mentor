@@ -2,10 +2,10 @@
   width: 100%;
   position: fixed;
   top: 0;
-  left: 0;
   z-index: 10;
-  .container {
-    padding: 2rem 0;
+  .header-wrapper {
+    margin: 0 -2rem;
+    padding: 2rem;
   }
   a {
     color: $primary-text;
@@ -22,11 +22,14 @@
   a {
     color: white;
   }
-  .container {
-    background-color: black;
-    padding: 2rem;
+  .header-wrapper {
+    background-color: rgb(11, 11, 11);
     border-bottom-left-radius: 3rem;
     border-bottom-right-radius: 3rem;
+    box-shadow: 0.3rem 0.5rem 1rem 0 rgba(255, 255, 255, 0.08);
+  }
+  span {
+    background-color: #fff;
   }
 }
 
@@ -97,10 +100,16 @@
       color: $primary-text;
     }
   }
+  .header-nav {
+    display: none;
+  }
 
   body.menu-active {
+    .header-nav {
+      display: block;
+    }
     .header-menu {
-      transform: translateX(3%);
+      transform: translateX(0%);
     }
     .burger-menu-container .burger-icon span {
       &:nth-child(1) {

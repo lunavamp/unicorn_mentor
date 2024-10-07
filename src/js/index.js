@@ -46,6 +46,24 @@ $v(".faq-video", (el) => {
   $(el).play();
 });
 
+$each("[class*='anim-'], [class*='anim2-'], [class*='anim4-']", (el) => {
+  $v(el, (el) => el.classList.add("run"));
+});
+
+$each("[class*='anim1-']", (el) => {
+  const randomDelay = Math.random() * 1000;
+
+  setTimeout(() => {
+    $v(el, (el) => el.classList.add("run"));
+  }, randomDelay);
+});
+
+$each("[class*='anim3-']", (el, index) => {
+  setTimeout(() => {
+    $v(el, (el) => el.classList.add("run"));
+  }, index * 500); //
+});
+
 const preloaderText = setTimeout(() => {
   $(".preloader").textContent = "Идет загрузка...";
 }, 300);
@@ -53,7 +71,9 @@ const preloaderText = setTimeout(() => {
 $e(window, "load", () => {
   clearTimeout(preloaderText);
   bc.add("loaded");
-  theLoaded();
+  setTimeout(() => {
+    theLoaded();
+  }, 400);
 });
 
 //responsive menu
@@ -102,3 +122,5 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   };
 });
+
+bc.add("js");
