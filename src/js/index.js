@@ -5,106 +5,100 @@ const d = document,
   bc = body.classList,
   $ = (sel, p = d) => p.querySelector(sel),
   $each = (sel, call, p = d) => p.querySelectorAll(sel).forEach(call),
-	$_oo = {
-		rootMargin: '0px',
-		threshold: 0.2,
-	},
-	$o = (sel, func, c = $_oo) => {
-		const el = getElement(sel)
-		if (el) {
-			const r = new IntersectionObserver(([e]) => {
-				func(e, e.target)
-			}, c);
-			r.observe(el)
-			return r
-		}
-	},
-	getElement = sel => (typeof sel === 'string' ? $(sel) : sel),
-  $e = (sel, type, call) => {
-	  const el = typeof sel === 'string' ? $(sel) : sel
-	  el && el.addEventListener(type, call)
+  $_oo = {
+    rootMargin: "0px",
+    threshold: 0.2,
   },
-	isLoaded = new Promise(e => theLoaded = e),
-	$v = (sel, call, once = false) => {
-		isLoaded.then(() => {
-			let obs = $o(sel, e => {
-				if (e.isIntersecting) {
-					call(sel);
-					if (once) {
-						obs.unobserve(getElement(sel))
-					}
-				}
+  $o = (sel, func, c = $_oo) => {
+    const el = getElement(sel);
+    if (el) {
+      const r = new IntersectionObserver(([e]) => {
+        func(e, e.target);
+      }, c);
+      r.observe(el);
+      return r;
+    }
+  },
+  getElement = (sel) => (typeof sel === "string" ? $(sel) : sel),
+  $e = (sel, type, call) => {
+    const el = typeof sel === "string" ? $(sel) : sel;
+    el && el.addEventListener(type, call);
+  },
+  isLoaded = new Promise((e) => (theLoaded = e)),
+  $v = (sel, call, once = false) => {
+    isLoaded.then(() => {
+      let obs = $o(sel, (e) => {
+        if (e.isIntersecting) {
+          call(sel);
+          if (once) {
+            obs.unobserve(getElement(sel));
+          }
+        }
+      });
+    });
+  };
 
-			})
-		})
-	};
-
-
-
-$o('.page-top', e => {
-	bc[e.intersectionRatio === 0 ? 'add' : 'remove']('is-scroll')
-})
-
-$v('.faq-video', el => {
-	$(el).play();
-})
-
-
-const preloaderText = setTimeout(() => {
-	$('.preloader').textContent = 'Идет загрузка...'
-}, 300);
-
-$e(window, 'load', () => {
-	clearTimeout(preloaderText);
-	bc.add('loaded');
-	theLoaded();
-
-
+$o(".page-top", (e) => {
+  bc[e.intersectionRatio === 0 ? "add" : "remove"]("is-scroll");
 });
 
-$e(body, 'click', e => {
-	const el = e.target
-	const elC = el.classList
-	const fx = elC.length ? elC[0]: ''
+$v(".faq-video", (el) => {
+  $(el).play();
+});
 
+const preloaderText = setTimeout(() => {
+  $(".preloader").textContent = "Идет загрузка...";
+}, 300);
 
-	if (el.tagName === 'A' && el.hash.startsWith('#')) {
-		bc.remove('header-menu-active')
-		return
-	}
-	if (fx.startsWith('fx-')) {
+$e(window, "load", () => {
+  clearTimeout(preloaderText);
+  bc.add("loaded");
+  theLoaded();
+});
 
-		// Burger:
-		if (fx === 'fx-header-burger') {
-			bc.toggle('header-menu-active')
-			// Open
-		}else if (fx.includes('fx-active-modal')) {
+//responsive menu
+const headerNav = document.querySelector(".header-menu");
+const burgerMenu = document.querySelector(".burger-menu-container");
 
-			const name = fx.replace('fx-', '')
-			bc.add(name)
-			gtag('event', name)
+burgerMenu.addEventListener("click", () => {
+  body.classList.toggle("menu-active");
+});
+document.addEventListener("click", (e) => {
+  const $el = e.target;
+  if ($el.tagName === "A" && $el.hash.startsWith("#")) {
+    body.classList.remove("menu-active");
+  }
+});
 
-			// Close
-		} else if (fx === 'fx-modal-close') {
-			const name = el.closest('section[class^="modal-"]').classList[0]
-			bc.remove('active-' + name)
-			gtag('event', 'close-' + name)
+const header = document.querySelector(".header");
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 50) {
+    header.classList.add("header-color");
+  } else {
+    header.classList.remove("header-color");
+  }
+});
 
-			// Send
-		} else if (fx === 'fx-modal-send') {
-			const name = el.closest('section[class^="modal-"]').classList[0]
+//modal
+document.addEventListener("DOMContentLoaded", function () {
+  const modal = document.getElementById("modal");
+  const btn = document.querySelector(".openModal");
+  const span = document.getElementById("closeModal");
 
-			bc.remove('active-' + name)
-			gtag('event', 'close-' + name)
-		}
-	}
+  btn.onclick = function () {
+    modal.classList.add("show");
+    body.classList.add("no-scroll");
+  };
 
-	if (elC.contains('overlay')) {
-		bc.forEach(name => {
-			if (name.includes('active-modal')) {
-				bc.remove(name)
-				gtag('event', 'close-' + name.replace('active', ''))
-			}
-		})
-	}
-})
+  span.onclick = function () {
+    modal.classList.remove("show");
+    body.classList.remove("no-scroll");
+  };
+
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.classList.remove("show");
+      body.classList.remove("no-scroll");
+    }
+  };
+});
