@@ -660,6 +660,7 @@ footer {
     border-bottom: 0.1rem solid #000;
     margin-top: 0.3rem;
     padding: 1rem 0;
+    color: #fff;
   }
   input::placeholder,
   textarea::placeholder {
@@ -907,7 +908,7 @@ footer {
 }
   }
   .timeline-section {
-      padding: 10rem 0 50rem;
+      padding: 10rem 0 25rem;
   }
   .timeline-container {
     padding: 13rem 0;
@@ -916,15 +917,15 @@ footer {
     flex-direction: column;
   }
   .arrow-line {
-    position: relative;
-    padding: 0;
-    transform: rotate(90deg);
+    display: none;
   }
   .level-1, .level-3, .level-5 {
-    margin-left: 4rem;
+    margin-top: -5rem;
+    margin-left: 10rem;
   }
   .level-2, .level-4 {
-    margin-right: 4rem;
+    margin-top: -5rem;
+    margin-right: 10rem;
   }
 }
 
