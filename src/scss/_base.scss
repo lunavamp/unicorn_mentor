@@ -13,7 +13,7 @@ body {
   font: 180% "Open Sans", sans-serif;
   font-style: normal;
   color: $primary-text;
-  line-height: 1.4;
+  line-height: normal;
   background-color: $bg-color;
   background-image: url("./../img/blob.svg"), url("../img/blob2.svg"),
     url("../img/blob3.svg");
@@ -157,7 +157,7 @@ p + p {
 }
 
 html {
-  font-size: 2.9vw;
+  font-size: 2.8vw;
 
   @include isDesktop() {
     font-size: 0.645vw;
@@ -177,9 +177,18 @@ html {
 }
 
 @include isMobile {
+  body {
+    line-height: 1.5;
+  }
   h1 {
     font-size: $font-l;
     line-height: 1.1;
+  }
+  h2 {
+    font-size: $font-l-mob;
+  }
+  h3 {
+    font-size: $font-m-mob;
   }
   .container2,
   .container {

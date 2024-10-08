@@ -310,8 +310,8 @@ main {
     &::before {
       display: block;
       content: url("../img/arrow-draw.svg");
-      height: 5rem;
-      width: 5rem;
+      min-height: 5rem;
+      min-width: 5rem;
       margin-top: 0.4rem;
       margin-left: -1rem;
     }
@@ -470,6 +470,9 @@ footer {
     width: 2.5rem;
     height: 2.5rem;
   }
+  .social-icons svg:hover {
+    scale: 1.1;
+  }
   .social-icons {
     gap: 0.3rem;
   }
@@ -569,7 +572,7 @@ footer {
   background-color: rgba(0, 0, 0, 0.637);
   backdrop-filter: blur(0.1rem);
   opacity: 0;
-  transition: all 0.8s ease-out;
+  transition: all 0.6s ease-out;
   pointer-events: none;
   .social-icons {
     gap: 2rem;
@@ -592,6 +595,25 @@ footer {
   max-width: 130rem;
   border-radius: 3rem;
   padding: 3rem;
+  @include isMobile {
+    .flex-sb {
+      flex-direction: column;
+    }
+    .social-icons {
+      display: none;
+    }
+    
+.modal-telegram {
+  padding: 2rem 0;
+  gap: 2rem;
+}
+.modal-form-container  {
+  padding: 2rem;
+}
+.modal-form input, .modal-form textarea {
+  padding: 0;
+}
+  }
 }
 
 .modal-form-container {
@@ -647,14 +669,21 @@ footer {
 }
 
 .modal-telegram {
+  padding: 4rem 3rem;
+  gap: 7rem;
   align-items: center;
   svg {
     height: 10rem;
     width: 10rem;
     fill: #000;
   }
+  .tele-title {
+    font-weight: 600;
+  }
 }
-
+.tele-subtitle {
+  font-size: $font-s;
+}
 .pulse-button {
   position: relative;
   display: inline-block;
@@ -725,6 +754,10 @@ footer {
   }
 }
 
+.consultation-section {
+  display: none;
+}
+
 @include isMobile {
   .banner-section {
     display: flex;
@@ -736,28 +769,57 @@ footer {
       display: none;
     }
     button {
-      max-width: 100%;
+      display: none;
+    }
+    p {
+      font-size: $font-s;
     }
   }
+
+
   .banner-img {
     position: static;
   }
   .for-who-section {
+    padding: 2rem 0;
     .container2 {
       flex-direction: column;
     }
   }
+  .forwho-bg {
+    height: 25rem;
+    width: 30rem;
+  }
   .learn-section {
-    padding: 0 2rem;
+    padding: 2rem;
   }
   .learn-wrap {
     flex-direction: column-reverse;
     margin: 0;
+    width: 100%;
+  }
+  .learn-section {
+    margin: 2rem 0;
+  }
+
+  .learn-bg {
+    width: 32rem;
+    height: 26rem;
   }
   .projects-section {
+    padding: 2rem 0;
     .container2 {
       flex-direction: column;
     }
+  }
+
+  .projects-bg {
+    height: 28rem;
+    width: 32rem;
+  }
+
+  .reviews-section {
+    padding: 12rem 0 6rem;
   }
   .review-cards,
   .faq-section,
@@ -777,11 +839,6 @@ footer {
       "box4";
   }
 
-  .arrow-line {
-    position: relative;
-    padding: 8rem 0;
-    transform: rotate(90deg);
-  }
   .footer-container {
     flex-direction: column-reverse;
     gap: 4rem;
@@ -791,6 +848,83 @@ footer {
     .card {
       height: fit-content;
     }
+  }
+
+  .about-icon {
+    height: 6.5rem;
+  width: 6.5rem;
+  }
+  .consultation-section {
+    display: block;
+    button {
+      border: none;
+      width: 100%;
+      line-height: 1;
+      height: 5.5rem;
+      text-transform: uppercase;
+  font-weight: 700;
+  border-radius: 3rem;
+  font-size: $font-s;
+  color: #000
+    }
+
+    
+.pulse-button[class] {
+  position: relative;
+  background-color: $brand-color4;
+  box-shadow: 0 0 1rem #45d62fa4;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.pulse-button[class]::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 5.5rem;
+  background-color:  #45d62fa4;
+  border-radius: 3rem;
+  transform: translate(-50%, -50%);
+  animation: pulse 2s infinite;
+  z-index: -1;
+}
+
+.pulse-button[class]::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 6.5rem;
+  border: 0.1rem solid #45d62fc5;
+  border-radius: 3rem;
+  transform: translate(-50%, -50%);
+  animation: ripple 2s infinite;
+  z-index: -2;
+}
+  }
+  .timeline-section {
+      padding: 10rem 0 50rem;
+  }
+  .timeline-container {
+    padding: 13rem 0;
+  }
+  .steps {
+    flex-direction: column;
+  }
+  .arrow-line {
+    position: relative;
+    padding: 0;
+    transform: rotate(90deg);
+  }
+  .level-1, .level-3, .level-5 {
+    margin-left: 4rem;
+  }
+  .level-2, .level-4 {
+    margin-right: 4rem;
   }
 }
 

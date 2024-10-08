@@ -102,14 +102,17 @@ window.addEventListener("scroll", () => {
 //modal
 document.addEventListener("DOMContentLoaded", function () {
   const modal = document.getElementById("modal");
-  const btn = document.querySelector(".openModal");
   const span = document.getElementById("closeModal");
 
-  btn.onclick = function () {
-    modal.classList.add("show");
-    body.classList.add("no-scroll");
-  };
-
+  $e(document, 'click', (e) => {
+    const el = e.target.closest('.openModal');
+    if(el){
+      modal.classList.add('show');
+      bc.add('no-scroll')
+    }
+  })
+  
+ 
   span.onclick = function () {
     modal.classList.remove("show");
     body.classList.remove("no-scroll");

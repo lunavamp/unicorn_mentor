@@ -41,6 +41,9 @@
   max-width: 67rem;
   gap: 7.3rem;
 }
+.mob-item {
+  display: none;
+}
 
 /* responsive menu */
 .burger-menu-container {
@@ -149,5 +152,15 @@
 
   .header-btn {
     display: none;
+  }
+  .mob-item {
+    display: block;
+    .social-icons {
+      fill: $brand-color1;
+      gap: 1.3rem;
+    }
+    svg {
+      width: 3rem;
+    }
   }
 }
