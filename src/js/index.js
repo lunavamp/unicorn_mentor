@@ -127,3 +127,31 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 bc.add("js");
+
+document.addEventListener("DOMContentLoaded", function () {
+  
+  const buttons = document.querySelectorAll('.read-more-btn');
+  
+  buttons.forEach((button) => {
+    button.addEventListener('click', (e) => {
+      
+      const shortText = document.querySelector(".short-text");
+      const fullText = document.querySelector(".full-text");
+      
+      if (fullText.style.display === "none" || fullText.style.display === "") {
+        fullText.style.display = "block";
+        shortText.style.display = "none";
+        e.target.textContent = "скрыть";
+      } else {
+        fullText.style.display = "none";
+        shortText.style.display = "block";
+        e.target.textContent = "читать больше...";
+      }
+    });
+  });
+  
+});
+
+
+
+

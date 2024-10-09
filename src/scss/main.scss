@@ -83,11 +83,6 @@ main {
 .projects-container {
   max-width: 70rem;
   gap: 4rem;
-
-  a {
-    color: $brand-color2;
-    margin-top: 1rem;
-  }
 }
 
 .for-who-section,
@@ -141,6 +136,15 @@ main {
   width: 82%;
   gap: 5rem;
 }
+
+.read-more-btn {
+  background-color: transparent;
+  color: $brand-color2;
+  margin-top: 1rem;
+  border: none;
+  cursor: pointer;
+}
+
 
 // timeline
 .timeline-container {
