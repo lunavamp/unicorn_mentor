@@ -33,7 +33,7 @@ main {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  right: -17rem;
+  right: -25rem;
   width: 87rem;
 }
 
@@ -602,17 +602,18 @@ footer {
     .social-icons {
       display: none;
     }
-    
-.modal-telegram {
-  padding: 2rem 0;
-  gap: 2rem;
-}
-.modal-form-container  {
-  padding: 2rem;
-}
-.modal-form input, .modal-form textarea {
-  padding: 0;
-}
+
+    .modal-telegram {
+      padding: 2rem 0;
+      gap: 2rem;
+    }
+    .modal-form-container {
+      padding: 2rem;
+    }
+    .modal-form input,
+    .modal-form textarea {
+      padding: 0;
+    }
   }
 }
 
@@ -777,7 +778,6 @@ footer {
     }
   }
 
-
   .banner-img {
     position: static;
   }
@@ -853,7 +853,7 @@ footer {
 
   .about-icon {
     height: 6.5rem;
-  width: 6.5rem;
+    width: 6.5rem;
   }
   .consultation-section {
     display: block;
@@ -863,52 +863,51 @@ footer {
       line-height: 1;
       height: 5.5rem;
       text-transform: uppercase;
-  font-weight: 700;
-  border-radius: 3rem;
-  font-size: $font-s;
-  color: #000
+      font-weight: 700;
+      border-radius: 3rem;
+      font-size: $font-s;
+      color: #000;
     }
 
-    
-.pulse-button[class] {
-  position: relative;
-  background-color: $brand-color4;
-  box-shadow: 0 0 1rem #45d62fa4;
-  text-align: center;
-  cursor: pointer;
-  transition: transform 0.3s;
-}
+    .pulse-button[class] {
+      position: relative;
+      background-color: $brand-color4;
+      box-shadow: 0 0 1rem #45d62fa4;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
 
-.pulse-button[class]::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100%;
-  height: 5.5rem;
-  background-color:  #45d62fa4;
-  border-radius: 3rem;
-  transform: translate(-50%, -50%);
-  animation: pulse 2s infinite;
-  z-index: -1;
-}
+    .pulse-button[class]::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      height: 5.5rem;
+      background-color: #45d62fa4;
+      border-radius: 3rem;
+      transform: translate(-50%, -50%);
+      animation: pulse 2s infinite;
+      z-index: -1;
+    }
 
-.pulse-button[class]::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100%;
-  height: 6.5rem;
-  border: 0.1rem solid #45d62fc5;
-  border-radius: 3rem;
-  transform: translate(-50%, -50%);
-  animation: ripple 2s infinite;
-  z-index: -2;
-}
+    .pulse-button[class]::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      height: 6.5rem;
+      border: 0.1rem solid #45d62fc5;
+      border-radius: 3rem;
+      transform: translate(-50%, -50%);
+      animation: ripple 2s infinite;
+      z-index: -2;
+    }
   }
   .timeline-section {
-      padding: 10rem 0 25rem;
+    padding: 10rem 0 25rem;
   }
   .timeline-container {
     padding: 13rem 0;
@@ -919,11 +918,14 @@ footer {
   .arrow-line {
     display: none;
   }
-  .level-1, .level-3, .level-5 {
+  .level-1,
+  .level-3,
+  .level-5 {
     margin-top: -5rem;
     margin-left: 10rem;
   }
-  .level-2, .level-4 {
+  .level-2,
+  .level-4 {
     margin-top: -5rem;
     margin-right: 10rem;
   }
